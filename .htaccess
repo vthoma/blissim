@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteRule ^$ resources/ [L]
+  RewriteRule (.*) resources/$1 [L]
+
+</IfModule>
