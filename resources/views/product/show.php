@@ -21,7 +21,7 @@
 
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
-        <li class="page-item <?= $_GET['page'] == 1 ? 'disabled' : '' ?>">
+        <li class="page-item <?= empty($_GET['page']) || $_GET['page'] == 1 ? 'disabled' : '' ?>">
             <a class="page-link" href="/product/<?= $params['product']->id ?>?page=<?= $_GET["page"]-1 ?>">Précédent</a>
         </li>
 
