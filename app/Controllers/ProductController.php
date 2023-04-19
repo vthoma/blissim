@@ -9,6 +9,7 @@ use Config\Database;
 
 class ProductController extends Controller
 {
+
     public function index()
     {
         $productModel = new Product($this->getDB());
@@ -17,6 +18,9 @@ class ProductController extends Controller
         $this->view('index', ['products' => $products]);
     }
 
+    /**
+     * Action d'affichage d'un produit
+     */
     public function show($id)
     {
         $productModel = new Product($this->getDB());
@@ -45,6 +49,9 @@ class ProductController extends Controller
         ]);
     }
 
+    /**
+     * Action d'ajout d'un commentaire
+     */
     public function addComment($id)
     {
         $validator = new Validator($_POST);

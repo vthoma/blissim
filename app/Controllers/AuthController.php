@@ -8,11 +8,17 @@ use App\Support\Validator;
 
 class AuthController extends Controller
 {
+    /*
+     * Action d'affichage du formulaire de connexion
+     */z
     public function index()
     {
         $this->view('login', ['title' => 'Connexion']);
     }
 
+    /*
+     * Action de connexion d'un utilisateur
+     */
     public function login()
     {
         $userModel = new User($this->getDB());
@@ -40,6 +46,9 @@ class AuthController extends Controller
         }
     }
 
+    /*
+     * Action de déconnexion d'un utilisateur
+     */
     public function logout()
     {
         session_destroy();

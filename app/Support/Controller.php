@@ -16,11 +16,17 @@ abstract class Controller
         $this->db = $db;
     }
 
+    /**
+     * Permet de charger un modèle
+     */
     protected function getDB()
     {
         return $this->db;
     }
 
+    /**
+     * Affiche une vueZ
+     */
     protected function view(string $path, array $params = null)
     {
         ob_start();

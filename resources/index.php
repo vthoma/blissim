@@ -16,7 +16,6 @@ const DB_PWD = 'password';
 // Routes
 $router = new Router($_SERVER["REQUEST_URI"]);
 
-
 $router->get(path: '/', action: 'App\Controllers\ProductController@index');
 $router->get(path: '/product/:id', action: 'App\Controllers\ProductController@show');
 $router->post(path: '/product/:id', action: 'App\Controllers\ProductController@addComment');

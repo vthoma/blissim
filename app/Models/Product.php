@@ -10,18 +10,29 @@ class Product extends Model
 {
     protected $table = 'products';
 
-    public function getCommentsForProduct(int $id, $limit, $offset)
+    /**
+     * Récupère les produits
+     * @return array
+     */
+    public function getCommentsForProduct(int $id, $limit, $offset): array
     {
         return $this->query(" SELECT comments.comment, users.name FROM comments INNER JOIN users ON comments.user_id = users.id  WHERE product_id = ? LIMIT ? OFFSET ?", [$id, $limit, $offset]);
     }
 
-    public function addComment(int $id, string $comment)
+    /**
+     * Ajoute un commentaire
+     * @return bool
+     */
+    public function addComment(int $id, string $comment): bool
     {
         return $this->query("INSERT INTO comments (product_id, user_id, comment) VALUES (?, ?, ?)", [$id, $_SESSION['id'], $comment]);
     }
 
-
-    public function countCommentsForProduct(int $id)
+    /**
+     * Récupère le nombre de commentaires d'un produit
+     * @return int
+     */
+    public function countCommentsForProduct(int $id): int
     {
         return $this->db->getPDO()->query("SELECT count(id) FROM comments WHERE product_id = '".$id."'")->fetch(PDO::FETCH_NUM)[0];
     }

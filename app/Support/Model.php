@@ -17,16 +17,25 @@ abstract class Model {
         $this->db = $db;
     }
 
+    /**
+     * Récupère tous les enregistrements
+     */
     public function all(): array
     {
         return $this->query("SELECT * FROM {$this->table} ORDER BY id ASC");
     }
 
+    /**
+     * Récupère un enregistrement par son ID
+     */
     public function findById(int $id): Model
     {
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
+    /**
+     * Construit une requête SQL
+     */
     public function query(string $sql, array $param = null, bool $single = null)
     {
         $method = is_null($param) ? 'query' : 'prepare';

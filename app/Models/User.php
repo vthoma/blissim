@@ -7,7 +7,11 @@ use App\Support\Model;
 class User extends Model
 {
     protected $table = 'users';
-    public function getByUsername(string $name)
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function getByUsername(string $name): arrayZ
     {
         return $this->query("SELECT * FROM {$this->table} WHERE name = ?", [$name]);
     }
