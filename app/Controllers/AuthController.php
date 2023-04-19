@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
     /*
      * Action d'affichage du formulaire de connexion
-     */z
+     */
     public function index()
     {
         $this->view('login', ['title' => 'Connexion']);

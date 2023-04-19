@@ -11,7 +11,7 @@ class User extends Model
     /**
      * @return array<string, mixed>
      */
-    public function getByUsername(string $name): arrayZ
+    public function getByUsername(string $name): array
     {
         return $this->query("SELECT * FROM {$this->table} WHERE name = ?", [$name]);
     }
